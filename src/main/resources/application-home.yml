@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: root
+    password: Wang2008..
+    url: jdbc:mysql://192.168.0.3:30036/db_kys?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+generate:
+  template: default
+  author: whx
+  tablePrefix: tb_
+  autoGenerate: id,gmt_created
+  deleteName:
+  basePackage: cn.kys.auth
+  enableSwagger: true
+  tables:
+    - tableName: tb_common_web_log

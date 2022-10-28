@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    username: root
+    password: Wang2008..
+    url: jdbc:mysql://172.26.0.1:3306/db_kys?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+generate:
+  template: default
+  author: whx
+  tablePrefix: tb_
+  basePackage: cn.kys.message
+  enableSwagger: false
+  tables:
+    - tableName: tb_sms_application
+      autoGenerate: id,gmt_modified,gmt_created,is_deleted
+      deleteName: is_deleted
+    - tableName: tb_sms_template
+      autoGenerate: id,gmt_modified,gmt_created,is_deleted
+      deleteName: is_deleted
+    - tableName: tb_sms_send_record
+      autoGenerate: id,gmt_modified,gmt_created
