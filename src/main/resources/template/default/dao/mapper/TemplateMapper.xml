@@ -84,7 +84,7 @@
     </sql>
 
     <sql id="BATCH_INSERT_PARAM">
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <trim prefix="(" suffix=")" suffixOverrides=",">
         <#list table.columns as column>
         <#if tableConfig.autoGenerate?seq_contains(column.originName)>
         <#else>
@@ -150,6 +150,7 @@
     <insert id="batchInsert" parameterType="${generateConfig.basePackage}.dao.entity.${table.className}DO">
     INSERT INTO ${table.originName}
     <include refid="BATCH_INSERT_FIELD"/>
+    values
     <foreach collection="${table.fieldName}s" separator="," item="item">
         <include refid="BATCH_INSERT_PARAM"/>
     </foreach>
