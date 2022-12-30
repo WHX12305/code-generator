@@ -29,6 +29,11 @@ public class Table {
     private String fieldName;
 
     /**
+     * 主键类型
+     */
+    private String primaryKeyType;
+
+    /**
      * 列信息
      */
     private List<Column> columns;
@@ -55,6 +60,14 @@ public class Table {
 
     public List<Column> getColumns() {
         return columns;
+    }
+
+    public String getPrimaryKeyType() {
+        return primaryKeyType;
+    }
+
+    public void setPrimaryKeyType(String primaryKeyType) {
+        this.primaryKeyType = primaryKeyType;
     }
 
     public void setColumns(List<Column> columns) {

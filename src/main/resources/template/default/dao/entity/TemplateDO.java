@@ -1,6 +1,5 @@
 package ${generateConfig.basePackage}.dao.entity;
 
-import java.io.Serial;
 import java.io.Serializable;
 <#list table.columnPackage as typePackage>
 import ${typePackage};
@@ -15,7 +14,6 @@ import ${typePackage};
  */
 public class ${table.className}DO implements Serializable{
 
-    @Serial
     private static final long serialVersionUID = ${serialNo}L;
 <#list table.columns as column>
     /**

@@ -1,6 +1,5 @@
 package ${generateConfig.basePackage}.query.entity;
 
-import java.io.Serial;
 import java.io.Serializable;
 <#list table.indexPackage as typePackage>
 import ${typePackage};
@@ -18,7 +17,6 @@ import io.swagger.annotations.ApiModelProperty;</#if>
 @ApiModel("${table.desc},查询条件")</#if>
 public class ${table.className}Query implements Serializable{
 
-    @Serial
     private static final long serialVersionUID = ${serialNo}L;
 <#list table.index as column>
     /**

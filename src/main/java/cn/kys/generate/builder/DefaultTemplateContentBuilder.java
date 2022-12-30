@@ -82,6 +82,7 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder{
         return fileTemplateContents;
     }
 
+    // todo 通过反射映射值
     private void buildTableConfig1(TableConfig tableConfig) {
         Class<? extends TableConfig> tableConfigClass = tableConfig.getClass();
         //获取TableConfig的字段名集合

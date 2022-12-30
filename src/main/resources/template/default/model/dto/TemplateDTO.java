@@ -1,6 +1,5 @@
 package ${generateConfig.basePackage}.model.dto;
 
-import java.io.Serial;
 import java.io.Serializable;
 <#list table.columnPackage as typePackage>
 import ${typePackage};
@@ -19,7 +18,6 @@ import io.swagger.annotations.ApiModelProperty;</#if>
 @ApiModel("${table.desc}")</#if>
 public class ${table.className}DTO implements Serializable{
 
-    @Serial
     private static final long serialVersionUID = ${serialNo}L;
 <#list table.columns as column>
     /**

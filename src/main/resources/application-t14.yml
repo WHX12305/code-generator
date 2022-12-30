@@ -2,14 +2,14 @@ spring:
   datasource:
     username: root
     password: menggejk
-    url: jdbc:mysql://10.1.30.253:3306/meerkat_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    url: jdbc:mysql://10.1.30.253:3306/data_analysis?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
 generate:
   template: default
   author: whx
   tablePrefix: tb_
-  basePackage: com.meerkat.settle
+  basePackage: com.meerkat.report
   enableSwagger: false
   tables:
-    - tableName: tb_settle_doc
-      autoGenerate: id,gmt_modified,gmt_created,is_deleted
+    - tableName: meerkat_customer_pull_record
+      autoGenerate: id,gmt_created,is_deleted
       deleteName: is_deleted
