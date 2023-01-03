@@ -8,7 +8,7 @@ package cn.kys.generate.builder.config;
  * @author whx
  * @since 2022/9/27 下午2:09
  */
-public class TableConfig {
+public class TableConfig implements Cloneable{
     /**
      * 作者
      */
@@ -101,5 +101,16 @@ public class TableConfig {
 
     public void setAutoGenerate(String[] autoGenerate) {
         this.autoGenerate = autoGenerate;
+    }
+
+    @Override
+    public TableConfig clone() {
+        try {
+            TableConfig clone = (TableConfig) super.clone();
+            // TODO: 复制此处的可变状态，这样此克隆就不能更改初始克隆的内部项
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

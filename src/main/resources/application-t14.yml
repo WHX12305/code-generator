@@ -6,10 +6,10 @@ spring:
 generate:
   template: default
   author: whx
-  tablePrefix: tb_
+  tablePrefix: dsr_
   basePackage: com.meerkat.report
   enableSwagger: false
   tables:
-    - tableName: meerkat_customer_pull_record
+    - tableName: dsr_bad_review_rate,dsr_goods,dsr_goods_bad_order_top100,dsr_children_account,dsr_ww_sat_scene,dsr_bad_account_top100,dsr_serv_bad_order_top100,dsr_refund_reson,dsr_refund_scene,dsr_refund_long_top100,dsr_order_help_long_top100,dsr_dispute_refund,dsr_complain,dsr_after_sale
       autoGenerate: id,gmt_created,is_deleted
       deleteName: is_deleted

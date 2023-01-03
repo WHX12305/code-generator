@@ -1,8 +1,10 @@
 package cn.kys.generate.builder.config;
 
+import cn.hutool.core.bean.BeanUtil;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -105,7 +107,17 @@ public class GenerateConfig {
     }
 
     public void setTables(List<TableConfig> tables) {
-        this.tables = tables;
+        List<TableConfig> tableConfigs = new ArrayList<>();
+        tables.forEach(e->{
+            String tableName = e.getTableName();
+            String[] split = tableName.split(",");
+            for (String s : split) {
+                TableConfig clone = e.clone();
+                clone.setTableName(s);
+                tableConfigs.add(clone);
+            }
+        });
+        this.tables = tableConfigs;
     }
 
     public String getTemplate() {
