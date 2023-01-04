@@ -11,6 +11,9 @@ spring:
       idle-timeout: 60000
       login-timeout: 5
       max-lifetime: 60000
-      maximum-pool-size: 15
-      minimum-idle: 15
+      maximum-pool-size: 1000
+      minimum-idle: 10
       read-only: false
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
