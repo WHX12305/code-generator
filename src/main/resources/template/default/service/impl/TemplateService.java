@@ -1,4 +1,4 @@
-package $
+package ${generateConfig.basePackage}.service.impl
 
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package ${generateConfig.basePackage}dao.mapper;
+package ${generateConfig.basePackage}.dao.mapper;
 
 import ${generateConfig.basePackage}.dao.entity.${table.className}DO;
 import ${generateConfig.basePackage}.dao.query.${table.className}DaoQuery;
