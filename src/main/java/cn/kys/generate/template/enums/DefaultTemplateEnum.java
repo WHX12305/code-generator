@@ -16,7 +16,8 @@ public enum DefaultTemplateEnum {
     DAO_MAPPER(".dao.mapper.","", "Mapper.java"),
     DAO_MAPPER_XML(".dao.mapper.","", "Mapper.xml"),
     MODEL_DTO(".model.dto.","", "DTO.java"),
-//    MODEL_PARAM(".model.param.","", "Param.java"),
+    MODEL_ADD(".model.dto.param.","", "AddParam.java"),
+//    MODEL_UPDATE(".model.param.","", "UpdateParam.java"),
     MODEL_QUERY(".model.dto.query.","", "Query.java");
     private final String path;
 
