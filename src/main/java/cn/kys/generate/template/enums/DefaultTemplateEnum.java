@@ -10,7 +10,7 @@ package cn.kys.generate.template.enums;
  */
 public enum DefaultTemplateEnum {
     SERVICE(".service.", "I", "Service.java"),
-    SERVICE_IMPL(".service.impl.","", "ServiceImpl.java"),
+    SERVICE_IMPL(".service.impl.","", "Service.java"),
     DAO_ENTITY(".dao.entity.","", "DO.java"),
     DAO_QUERY(".dao.query.","", "DaoQuery.java"),
     DAO_MAPPER(".dao.mapper.","", "Mapper.java"),
