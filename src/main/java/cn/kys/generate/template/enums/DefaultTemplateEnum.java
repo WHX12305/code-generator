@@ -18,7 +18,9 @@ public enum DefaultTemplateEnum {
     MODEL_DTO(".model.dto.","", "DTO.java"),
     MODEL_ADD(".model.dto.param.","", "AddParam.java"),
 //    MODEL_UPDATE(".model.param.","", "UpdateParam.java"),
-    MODEL_QUERY(".model.dto.query.","", "Query.java");
+    MODEL_QUERY(".model.dto.query.","", "Query.java"),
+    CONTROLLER(".controller.", "", "Controller.java");
+
     private final String path;
 
     private final String prefix;
