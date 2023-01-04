@@ -1,5 +1,6 @@
 package ${generateConfig.basePackage}.service.dsr;
 
+import ${generateConfig.basePackage}.model.dto.param.${table.className}AddParam;
 /**
  * <p>
  * ${table.desc}
@@ -10,4 +11,8 @@ package ${generateConfig.basePackage}.service.dsr;
  */
 public interface I${table.className}Service {
 
+    /**
+     * 新增
+     */
+    void add(${table.className}AddParam ${table.fieldName}AddParam);
 }
