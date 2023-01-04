@@ -9,14 +9,15 @@ package cn.kys.generate.template.enums;
  * @since 2022/9/27 下午2:54
  */
 public enum DefaultTemplateEnum {
-    SERVICE(".service.", "I", "Service.java"),
-    SERVICE_IMPL(".service.impl.","", "ServiceImpl.java"),
-    DAO_ENTITY(".dao.entity.","", "DO.java"),
-    DAO_QUERY(".dao.query.","", "DaoQuery.java"),
-    DAO_MAPPER(".dao.mapper.","", "Mapper.java"),
-    DAO_MAPPER_XML(".dao.mapper.","", "Mapper.xml"),
+    SERVICE(".service.dsr.", "I", "Service.java"),
+    SERVICE_IMPL(".service.dsr.impl.","", "Service.java"),
+    DAO_ENTITY(".entity.dsr.","", "DO.java"),
+    DAO_QUERY(".entity.dsr.query.","", "DaoQuery.java"),
+    DAO_MAPPER(".mapper.dsr.","", "Mapper.java"),
+    DAO_MAPPER_XML(".mybatis.mapper.dsr.","", "Mapper.xml"),
     MODEL_DTO(".model.dto.","", "DTO.java"),
-//    MODEL_PARAM(".model.param.","", "Param.java"),
+    MODEL_ADD(".model.dto.param.","", "AddParam.java"),
+//    MODEL_UPDATE(".model.param.","", "UpdateParam.java"),
     MODEL_QUERY(".model.dto.query.","", "Query.java");
     private final String path;
 
