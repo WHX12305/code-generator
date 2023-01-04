@@ -1,5 +1,6 @@
-package $
+package ${generateConfig.basePackage}.service.dsr.impl;
 
+import ${generateConfig.basePackage}.service.dsr.I${table.className}Service;
 import org.springframework.stereotype.Service;
 
 /**

@@ -1,4 +1,4 @@
-package ${generateConfig.basePackage}.query.entity;
+package ${generateConfig.basePackage}.model.dto.query;
 
 import java.io.Serializable;
 <#list table.indexPackage as typePackage>

@@ -1,4 +1,4 @@
-package ${generateConfig.basePackage}.model.dto;
+package ${generateConfig.basePackage}.model.dto.param;
 
 import java.io.Serializable;
 <#list table.columnPackage as typePackage>
@@ -24,7 +24,7 @@ public class ${table.className}AddParam implements Serializable{
     /**
      * <#if column.desc != "">${column.desc}</#if>
      */<#if tableConfig.enableSwagger == "true">
-    @ApiModelProperty(required = ${column.canNull?c}, value = "${column.desc}")</#if>
+    @ApiModelProperty(required = ${(!column.canNull)?c}, value = "${column.desc}")</#if>
     private ${column.type} ${column.fieldName};</#if>
 </#list>
 <#list table.columns as column>
