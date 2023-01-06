@@ -3,6 +3,7 @@ package ${generateConfig.basePackage}.mapper.dsr;
 import ${generateConfig.basePackage}.entity.dsr.${table.className}DO;
 import ${generateConfig.basePackage}.entity.dsr.query.${table.className}DaoQuery;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
@@ -31,7 +32,7 @@ public interface ${table.className}Mapper {
     /**
      * 批量新增
      */
-    void batchInsert(List<${table.className}DO> ${table.fieldName}s);
+    void batchInsert(@Param("${table.fieldName}s") List<${table.className}DO> ${table.fieldName}s);
 
     /**
      * 根据主键id更新

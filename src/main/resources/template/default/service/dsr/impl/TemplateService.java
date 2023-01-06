@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import ${generateConfig.basePackage}.utils.CopyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import ${generateConfig.basePackage}.mapper.dsr.${table.className}Mapper;
+import java.util.List;
 
 /**
  * <p>
@@ -26,5 +27,10 @@ public class ${table.className}Service implements I${table.className}Service {
     @Override
     public void add(${table.className}AddParam ${table.fieldName}AddParam) {
         ${table.fieldName}Mapper.insert(CopyUtil.copy(${table.fieldName}AddParam, ${table.className}DO.class));
+    }
+
+    @Override
+    public void batchAdd(List<${table.className}AddParam> ${table.fieldName}AddParams) {
+        ${table.fieldName}Mapper.batchInsert(CopyUtil.copyList(${table.fieldName}AddParams, ${table.className}DO.class));
     }
 }

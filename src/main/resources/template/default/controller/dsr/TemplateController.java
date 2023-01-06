@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.dynamic.datasource.annotation.DS;
+import java.util.List;
 
 /**
  * <p>
@@ -33,4 +34,10 @@ public class ${table.className}Controller {
         return "success";
     }
 
+    @PostMapping("batchAdd")
+    @DS("analysis")
+    public String batchAdd(@RequestBody List<${table.className}AddParam> ${table.fieldName}AddParams){
+        ${table.fieldName}Service.batchAdd(${table.fieldName}AddParams);
+        return "success";
+    }
 }
