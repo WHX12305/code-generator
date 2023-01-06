@@ -1,4 +1,4 @@
-package ${generateConfig.basePackage}.dao.query;
+package ${generateConfig.basePackage}.inner.dao.query;
 
 import java.io.Serializable;
 <#list table.indexPackage as typePackage>

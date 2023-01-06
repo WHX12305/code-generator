@@ -1,8 +1,8 @@
-package ${generateConfig.basePackage}.service
+package ${generateConfig.basePackage}.inner.service
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ${generateConfig.basePackage}.dao.mapper.${table.className}Mapper
+import ${generateConfig.basePackage}.inner.dao.mapper.${table.className}Mapper
 
 /**
  * <p>

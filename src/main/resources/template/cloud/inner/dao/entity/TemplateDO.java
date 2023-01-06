@@ -1,4 +1,4 @@
-package ${generateConfig.basePackage}.dao.entity;
+package ${generateConfig.basePackage}.inner.dao.entity;
 
 import java.io.Serializable;
 <#list table.columnPackage as typePackage>

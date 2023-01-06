@@ -1,4 +1,4 @@
-package ${generateConfig.basePackage}.service;
+package ${generateConfig.basePackage}.api.service;
 
 /**
  * <p>

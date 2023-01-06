@@ -1,6 +1,6 @@
-package ${generateConfig.basePackage}.controller;
+package ${generateConfig.basePackage}.api.controller;
 
-import ${generateConfig.basePackage}.service.${table.className}Service;
+import ${generateConfig.basePackage}.api.service.${table.className}Service;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
