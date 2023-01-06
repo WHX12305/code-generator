@@ -4,7 +4,7 @@ spring:
     password: menggejk
     url: jdbc:mysql://10.1.30.253:3306/data_analysis?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
 generate:
-  template: default
+  template: cloud
   author: whx
   tablePrefix: dsr_
   basePackage: com.meerkat.report

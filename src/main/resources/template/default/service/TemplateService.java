@@ -8,6 +8,6 @@ package ${generateConfig.basePackage}.service;
  * @author ${generateConfig.author}
  * @since ${dateTime}
  */
-public interface I${table.className}Service {
+public interface ${table.className}Service {
 
 }

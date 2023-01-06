@@ -1,7 +1,6 @@
 package ${generateConfig.basePackage}.controller;
 
 import ${generateConfig.basePackage}.service.${table.className}Service;
-import ${generateConfig.basePackage}.service.${table.className}WriteService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +23,4 @@ public class ${table.className}Controller {
     @Autowired
     private ${table.className}Service ${table.fieldName}Service;
 
-    @Autowired
-    private ${table.className}WriteService ${table.fieldName}WriteService;
 }
