@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author whx
  * @since 2022/9/27 下午4:16
  */
-@SpringBootTest(classes = GenerateApplication.class, properties = "spring.profiles.active=t14")
+@SpringBootTest(classes = GenerateApplication.class, properties = "spring.profiles.active=home")
 public class GenerateApplicationTest {
     @Autowired
     private GenerateFacade generateFacade;

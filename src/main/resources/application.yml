@@ -1,7 +1,7 @@
 spring:
   config:
     activate:
-      on-profile: t14
+      on-profile: home
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:

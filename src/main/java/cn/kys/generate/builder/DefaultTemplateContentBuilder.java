@@ -30,7 +30,7 @@ import java.util.*;
  * @since 2022/9/28 上午10:38
  */
 @Component
-public class DefaultTemplateContentBuilder implements TemplateContentBuilder{
+public class DefaultTemplateContentBuilder implements TemplateContentBuilder {
 
     @Autowired
     private GenerateConfig generateConfig;
@@ -63,7 +63,7 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder{
                     Optional<TableConfig> first = generateConfig.getTables().stream()
                             .filter(e -> e.getTableName().equals(tableName))
                             .findFirst();
-                    if (first.isPresent()){
+                    if (first.isPresent()) {
                         FileTemplateContent fileTemplateContent = new FileTemplateContent();
                         fileTemplateContent.setGenerateConfig(generateConfig);
                         fileTemplateContent.setSerialNo(IdUtil.getSnowflakeNextIdStr());
@@ -91,14 +91,14 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder{
 
         for (String fieldName : fieldNames) {
             try {
-                Field  tableConfigfField = tableConfigClass.getDeclaredField(fieldName);
+                Field tableConfigfField = tableConfigClass.getDeclaredField(fieldName);
                 tableConfigfField.setAccessible(true);
                 Object target = tableConfigfField.get(tableConfig);
-                if (target == null){
+                if (target == null) {
                     Field[] fields = generateConfig.getClass().getDeclaredFields();
                     for (Field field : fields) {
                         field.setAccessible(true);
-                        if (field.getName().equals(tableConfigfField.getName())){
+                        if (field.getName().equals(tableConfigfField.getName())) {
                             Object source = field.get(generateConfig);
                             tableConfigfField.set(tableConfig, source);
                         }
@@ -111,22 +111,22 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder{
     }
 
     private void buildTableConfig(TableConfig tableConfig) {
-        if (tableConfig.getAuthor() == null){
+        if (tableConfig.getAuthor() == null) {
             tableConfig.setAuthor(generateConfig.getAuthor());
         }
-        if (tableConfig.getTablePrefix() == null){
+        if (tableConfig.getTablePrefix() == null) {
             tableConfig.setTablePrefix(generateConfig.getTablePrefix());
         }
-        if (tableConfig.getAutoGenerate() == null){
+        if (tableConfig.getAutoGenerate() == null) {
             tableConfig.setAutoGenerate(generateConfig.getAutoGenerate());
         }
-        if (tableConfig.getDeleteName() == null){
+        if (tableConfig.getDeleteName() == null) {
             tableConfig.setDeleteName(generateConfig.getDeleteName());
         }
-        if (tableConfig.getBasePackage() == null){
+        if (tableConfig.getBasePackage() == null) {
             tableConfig.setBasePackage(generateConfig.getBasePackage());
         }
-        if (tableConfig.getEnableSwagger() == null){
+        if (tableConfig.getEnableSwagger() == null) {
             tableConfig.setEnableSwagger(generateConfig.getEnableSwagger());
         }
     }
@@ -134,7 +134,7 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder{
     private Table buildTable(String tableName, TableConfig tableConfig) throws SQLException {
         Table table = new Table();
         table.setOriginName(tableName);
-        String tablePrefix = tableConfig.getTablePrefix();
+        String tablePrefix = tableConfig.getTablePrefix() == null ? "" : tableConfig.getTablePrefix();
         table.setClassName(
                 GenerateUtil.firstUpper(
                         GenerateUtil.hump(tableName.replace(tablePrefix, ""))
@@ -146,7 +146,7 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder{
                 "SELECT TABLE_COMMENT FROM information_schema.tables WHERE TABLE_SCHEMA = '" + database + "' AND TABLE_NAME = '" + tableName + "'";
         List<LinkedHashMap<String, String>> publicItems = pubMapper.getPublicItems(selectDesc);
         LinkedHashMap<String, String> tableSchema = publicItems.get(0);
-        if (tableSchema == null || tableSchema.size() == 0){
+        if (tableSchema == null || tableSchema.size() == 0) {
             throw new RuntimeException(tableName + "未执行建表语句");
         }
 
@@ -166,7 +166,7 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder{
         List<Column> indexList = new ArrayList<>();
         Set<String> columnsPackage = new HashSet<>();
         Set<String> columnsKeyPackage = new HashSet<>();
-        publicItems.forEach(e->{
+        publicItems.forEach(e -> {
             Column column = new Column();
             column.setDesc(e.get("COLUMN_COMMENT"));
             column.setKey(e.get("COLUMN_KEY"));
@@ -180,7 +180,7 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder{
             column.setTypePackage(GenerateUtil.getType(e.get("DATA_TYPE")));
             columns.add(column);
             columnsPackage.add(column.getTypePackage());
-            if(column.getKey() != null && !"".equals(column.getKey()) &&!"PRI".equals(column.getKey())){
+            if (column.getKey() != null && !"".equals(column.getKey()) && !"PRI".equals(column.getKey())) {
                 columnsKeyPackage.add(column.getTypePackage());
                 indexList.add(column);
             }
