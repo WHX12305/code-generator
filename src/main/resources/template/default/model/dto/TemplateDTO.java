@@ -1,4 +1,4 @@
-package ${generateConfig.basePackage}.model.dto;
+package ${generateConfig.basePackage}.api.model.dto;
 
 import java.io.Serializable;
 <#list table.columnPackage as typePackage>
@@ -19,21 +19,33 @@ import io.swagger.annotations.ApiModelProperty;</#if>
 public class ${table.className}DTO implements Serializable{
 
     private static final long serialVersionUID = ${serialNo}L;
-<#list table.columns as column>
+<#list table.columns as column><#if tableConfig.deleteName??><#if tableConfig.deleteName != column.originName>
     /**
      * <#if column.desc != "">${column.desc}</#if>
      */<#if tableConfig.enableSwagger == "true">
     @ApiModelProperty(required = ${column.canNull?c}, value = "${column.desc}")</#if>
     private ${column.type} ${column.fieldName};
-</#list>
-<#list table.columns as column>
+</#if><#else>
+    /**
+     * <#if column.desc != "">${column.desc}</#if>
+     */<#if tableConfig.enableSwagger == "true">
+    @ApiModelProperty(required = ${column.canNull?c}, value = "${column.desc}")</#if>
+    private ${column.type} ${column.fieldName};
+</#if></#list>
+<#list table.columns as column><#if tableConfig.deleteName??><#if tableConfig.deleteName != column.originName>
 
     public ${column.type} get${column.upperFieldName}() {
-            return ${column.fieldName};
+        return ${column.fieldName};
     }
-
     public void set${column.upperFieldName}(${column.type} ${column.fieldName}) {
-            this.${column.fieldName} = ${column.fieldName};
+        this.${column.fieldName} = ${column.fieldName};
     }
-</#list>
+    </#if><#else>
+
+    public ${column.type} get${column.upperFieldName}() {
+        return ${column.fieldName};
+    }
+    public void set${column.upperFieldName}(${column.type} ${column.fieldName}) {
+        this.${column.fieldName} = ${column.fieldName};
+    }</#if></#list>
 }

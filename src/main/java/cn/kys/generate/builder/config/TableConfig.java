@@ -85,9 +85,6 @@ public class TableConfig implements Cloneable{
     }
 
     public String getDeleteName() {
-        if (deleteName == null){
-            deleteName = "";
-        }
         return deleteName;
     }
 

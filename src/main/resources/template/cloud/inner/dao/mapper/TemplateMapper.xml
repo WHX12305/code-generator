@@ -18,9 +18,6 @@
 
     <sql id="QUERY_CONDITION">
         <#list table.index as column>
-        <#if column.originName == tableConfig.deleteName>
-        ${tableConfig.deleteName} = 0
-        <#else>
         <#if column.type=="String">
         <if test="null != ${column.fieldName} and '' != ${column.fieldName}">
             AND ${column.originName} = ${r"#{"}${column.fieldName}${r"}"},
@@ -29,7 +26,6 @@
         <if test="null != ${column.fieldName}">
             AND ${column.originName} = ${r"#{"}${column.fieldName}${r"}"},
         </if>
-        </#if>
         </#if>
         </#list>
     </sql>
@@ -113,7 +109,7 @@
     <select id="selectOneById" resultMap="BaseResultMap">
         SELECT <include refid="SELECT"/> FROM ${table.originName}
         WHERE id = ${r"#{id}"}
-        <#if !tableConfig.deleteName??>
+        <#if tableConfig.deleteName??>
         AND ${tableConfig.deleteName} = 0
         </#if>
     </select>
@@ -125,7 +121,7 @@
             ${r"#{id}"}
         </foreach>
         )
-        <#if !tableConfig.deleteName??>
+        <#if tableConfig.deleteName??>
         AND ${tableConfig.deleteName} = 0
         </#if>
     </select>
@@ -135,7 +131,7 @@
         <where>
             <include refid="QUERY_CONDITION"/>
         </where>
-        <#if !tableConfig.deleteName??>
+        <#if tableConfig.deleteName??>
         AND ${tableConfig.deleteName} = 0
         </#if>
     </select>
