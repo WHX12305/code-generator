@@ -134,6 +134,9 @@
         <#if tableConfig.deleteName??>
         AND ${tableConfig.deleteName} = 0
         </#if>
+        <if test="null != orderBy and '' != orderBy">
+        ORDER BY #{orderBy}
+        </if>
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id"
