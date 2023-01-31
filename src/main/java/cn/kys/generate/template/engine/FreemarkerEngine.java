@@ -22,8 +22,6 @@ import java.io.Writer;
 @Component
 public class FreemarkerEngine implements TemplateEngine{
 
-    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
-
     @Override
     public void process(String templateFilePath, String targetFilePath, Object data) {
         try {

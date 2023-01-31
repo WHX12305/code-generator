@@ -1,7 +1,7 @@
-package ${generateConfig.basePackage}.dao.mapper;
+package ${generateConfig.basePackage}.${templateInfo.packagePath};
 
-import ${generateConfig.basePackage}.dao.entity.${table.className}DO;
-import ${generateConfig.basePackage}.dao.query.${table.className}DaoQuery;
+import ${generateConfig.basePackage}.${templateInfo.doPackagePath}.${table.className}DO;
+import ${generateConfig.basePackage}.${templateInfo.doQueryPackagePath}.${table.className}DaoQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

@@ -2,14 +2,21 @@ package cn.kys.generate.template.process;
 
 import cn.kys.generate.builder.config.GenerateConfig;
 import cn.kys.generate.builder.model.FileTemplateContent;
+import cn.kys.generate.builder.model.TemplateInfo;
 import cn.kys.generate.template.engine.TemplateEngine;
-import cn.kys.generate.template.enums.CloudTemplateEnum;
-import cn.kys.generate.template.enums.DefaultTemplateEnum;
-import cn.kys.generate.template.enums.TemplateEnum;
+import cn.kys.generate.template.enums.TemplateFileNameEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * <p>
@@ -29,59 +36,81 @@ public class DefaultProcess extends Process {
 
     @Override
     public void exec(FileTemplateContent fileTemplateContent) {
-        String originName = fileTemplateContent.getTable().getOriginName();
-        String className = fileTemplateContent.getTable().getClassName();
         GenerateConfig generateConfig = fileTemplateContent.getGenerateConfig();
-        String templateFilePath = templateFilePath(generateConfig.getTemplate());
-        String outPath = outPath(generateConfig);
-        if (generateConfig.getTemplate().equals("default")){
-            for (DefaultTemplateEnum value : DefaultTemplateEnum.values()) {
-                LOG.info("开始生成{}表的{}", originName, value);
-                templateEngine.process(templateFilePath + value.getRePath() + value.getTemplateName(),
-                        buildTargetFilePath(
-                                outPath,
-                                value,
-                                value.getPrefix() + className + value.getSuffix()),
-                        fileTemplateContent);
-                LOG.info("{}表的{}生成完毕", originName, value);
+        String templateConfigName = generateConfig.getTemplate();
+        String templateFilePath = templateFilePath(templateConfigName);
+        String outPath = outPath(generateConfig.getBasePackage());
+        for (TemplateFileNameEnum templateFileNameEnum : TemplateFileNameEnum.values()) {
+            String templateName = templateFileNameEnum.getTemplateName();
+            //添加模板信息
+            TemplateInfo templateInfo = new TemplateInfo();
+            String templatePathPartPackage = getTemplatePathPartPackage(templateFilePath, templateConfigName, templateName);
+            templateInfo.setPackagePath(templatePathPartPackage);
+            templateInfo.setDoPackagePath(getTemplatePathPartPackage(templateFilePath, templateConfigName, TemplateFileNameEnum.DAO_ENTITY.getTemplateName()));
+            templateInfo.setDoQueryPackagePath(getTemplatePathPartPackage(templateFilePath, templateConfigName, TemplateFileNameEnum.DAO_QUERY.getTemplateName()));
+            templateInfo.setMapperPackagePath(getTemplatePathPartPackage(templateFilePath, templateConfigName, TemplateFileNameEnum.DAO_MAPPER.getTemplateName()));
+            fileTemplateContent.setTemplateInfo(templateInfo);
+            if (templatePathPartPackage == null){
+                templatePathPartPackage = "";
             }
-        }
-        if (generateConfig.getTemplate().equals("cloud")){
-            for (CloudTemplateEnum value : CloudTemplateEnum.values()) {
-                LOG.info("开始生成{}表的{}", originName, value);
-                templateEngine.process(templateFilePath + value.getRePath() + value.getTemplateName(),
-                        buildTargetFilePath(
-                                outPath,
-                                value,
-                                value.getPrefix() + className + value.getSuffix()),
-                        fileTemplateContent);
-                LOG.info("{}表的{}生成完毕", originName, value);
-            }
+            templateEngine.process(
+                    templateFilePath + "/" + templatePathPartPackage.replaceAll("\\.", "/") + "/" + templateName,
+                    outPath + "/" + templatePathPartPackage.replaceAll("\\.", "/") + "/" + templateFileNameEnum.getPrefix() + fileTemplateContent.getTable().getClassName() + templateFileNameEnum.getSuffix(),
+                    fileTemplateContent
+            );
+            LOG.info("{}表的{}生成完毕", fileTemplateContent.getTableConfig().getTableName(), templateName);
         }
     }
 
-    private String buildTargetFilePath(String outPath, TemplateEnum templateEnum, String name) {
-        return outPath + templateEnum.getRePath() + name;
+    /**
+     * @param templateFilePath     当前选择模板
+     * @param templateName 当前生成的模板文件名称
+     * @return 模板文件子包路径
+     */
+    private String getTemplatePathPartPackage(String templateFilePath, String templateConfigName, String templateName) {
+        try {
+            Optional<Path> first = Files.walk(Paths.get(templateFilePath)).filter(e -> e.getFileName().toString().equals(templateName)).findFirst();
+            if (first.isPresent()) {
+                String templatePath = first.get().toString();
+                return templatePath.split(templateConfigName + "/")[1].split("/" + templateName)[0].replaceAll("/", ".");
+            }else {
+                LOG.warn("templateFilePath:{},templateConfigName{},templateName:{}", templateFilePath, templateConfigName, templateName);
+                return null;
+            }
+        } catch (IOException e) {
+            LOG.error("templateFilePath:{},templateConfigName{},templateName:{}", templateFilePath, templateConfigName, templateName);
+            throw new RuntimeException(e);
+        }
     }
 
-    private String outPath(GenerateConfig generateConfig){
-        if (System.getProperties().getProperty("os.name").contains("Windows")){
+    /**
+     * @param basePackage 基础包路径
+     * @return 文件输出路径
+     */
+    private String outPath(String basePackage) {
+        //Window系统输出路径
+        if (System.getProperties().getProperty("os.name").contains("Windows")) {
             return this.getClass()
                     .getClassLoader()
                     .getResource("\\")
                     .getPath()
-                    .replace("/target/test-classes/", "/src/main/resources/out/" + generateConfig.getBasePackage().replaceAll("\\.","/")).replaceFirst("/", "")
+                    .replace("/target/test-classes/", "/src/main/resources/out/" + basePackage.replaceAll("\\.", "/")).replaceFirst("/", "")
                     .replace("%5c", "");
         }
+        //Linux系统输出路径
         return this.getClass()
                 .getClassLoader()
                 .getResource("")
                 .getPath()
-                .replace("/target/test-classes/", "/src/main/resources/out/" + generateConfig.getBasePackage().replaceAll("\\.","/"));
+                .replace("/target/test-classes/", "/src/main/resources/out/" + basePackage.replaceAll("\\.", "/"));
     }
 
-    private String templateFilePath(String templateName){
-        if (System.getProperties().getProperty("os.name").contains("Windows")){
+    /**
+     * @param templateName 模板名称
+     * @return 模板文件路径
+     */
+    private String templateFilePath(String templateName) {
+        if (System.getProperties().getProperty("os.name").contains("Windows")) {
             return this.getClass()
                     .getClassLoader()
                     .getResource("\\")

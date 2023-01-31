@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${generateConfig.basePackage}.inner.dao.mapper.${table.className}Mapper">
+<mapper namespace="${generateConfig.basePackage}.${templateInfo.mapperPackagePath}.${table.className}Mapper">
 
-    <resultMap id="BaseResultMap" type="${generateConfig.basePackage}.inner.dao.entity.${table.className}DO">
+    <resultMap id="BaseResultMap" type="${generateConfig.basePackage}.${templateInfo.doPackagePath}.${table.className}DO">
         <#list table.columns as column>
         <result column="${column.originName}" property="${column.fieldName}"/>
         </#list>
@@ -137,13 +137,13 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id"
-            parameterType="${generateConfig.basePackage}.inner.dao.entity.${table.className}DO">
+            parameterType="${generateConfig.basePackage}.${templateInfo.doPackagePath}.${table.className}DO">
         INSERT INTO ${table.originName}
         <include refid="INSERT_FIELD"/>
         <include refid="INSERT_PARAM"/>
     </insert>
 
-    <insert id="batchInsert" parameterType="${generateConfig.basePackage}.inner.dao.entity.${table.className}DO">
+    <insert id="batchInsert" parameterType="${generateConfig.basePackage}.${templateInfo.doPackagePath}.${table.className}DO">
     INSERT INTO ${table.originName}
     <include refid="BATCH_INSERT_FIELD"/>
     values

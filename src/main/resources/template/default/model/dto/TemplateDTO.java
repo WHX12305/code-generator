@@ -1,4 +1,4 @@
-package ${generateConfig.basePackage}.api.model.dto;
+package ${generateConfig.basePackage}.${templateInfo.packagePath};
 
 import java.io.Serializable;
 <#list table.columnPackage as typePackage>

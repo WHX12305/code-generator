@@ -38,6 +38,19 @@ public class FileTemplateContent {
      */
     private Table table;
 
+    /**
+     * 模板文件信息
+     */
+    private TemplateInfo templateInfo;
+
+    public TemplateInfo getTemplateInfo() {
+        return templateInfo;
+    }
+
+    public void setTemplateInfo(TemplateInfo templateInfo) {
+        this.templateInfo = templateInfo;
+    }
+
     public String getSerialNo() {
         return serialNo;
     }
