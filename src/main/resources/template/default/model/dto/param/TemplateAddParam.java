@@ -37,4 +37,4 @@ public class ${table.className}AddParam implements Serializable{
         this.${column.fieldName} = ${column.fieldName};
     }</#if>
 </#list>
-        }
+}
