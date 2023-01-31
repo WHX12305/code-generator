@@ -4,12 +4,12 @@ spring:
     password: menggejk
     url: jdbc:mysql://10.1.30.253:3306/data_analysis?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
 generate:
-  template: cloud
+  template: default
   author: whx
-  tablePrefix: dsr_
+  tablePrefix: meerkat_
   basePackage: com.meerkat.report
   enableSwagger: false
   tables:
-    - tableName: dsr_bad_review_rate,dsr_goods,dsr_goods_bad_order_top100,dsr_children_account,dsr_ww_sat_scene,dsr_bad_account_top100,dsr_serv_bad_order_top100,dsr_refund_reson,dsr_refund_scene,dsr_refund_long_top100,dsr_order_help_long_top100,dsr_dispute_refund,dsr_complain,dsr_after_sale
+    - tableName: meerkat_service_performance
       autoGenerate: id,gmt_created,is_deleted
       deleteName: is_deleted
