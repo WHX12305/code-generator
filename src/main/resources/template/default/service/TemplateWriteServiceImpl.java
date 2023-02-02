@@ -1,4 +1,4 @@
-package ${generateConfig.basePackage}.${templateInfo.packagePath}
+package ${generateConfig.basePackage}.${templateInfo.packagePath};
 
 import org.springframework.stereotype.Service;
 

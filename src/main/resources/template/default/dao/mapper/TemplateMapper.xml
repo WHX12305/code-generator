@@ -135,7 +135,7 @@
         AND ${tableConfig.deleteName} = 0
         </#if>
         <if test="null != orderBy and '' != orderBy">
-        ORDER BY #{orderBy}
+        ORDER BY ${r"${orderBy}"}
         </if>
     </select>
 
