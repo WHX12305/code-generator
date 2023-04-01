@@ -10,8 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * 生成代码
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午4:16
+ * @author catnip
  */
 @SpringBootTest(classes = GenerateApplication.class, properties = "spring.profiles.active=t14local")
 public class GenerateApplicationTest {

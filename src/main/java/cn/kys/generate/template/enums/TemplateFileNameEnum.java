@@ -5,8 +5,7 @@ package cn.kys.generate.template.enums;
  * 模板文件名称枚举
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午2:54
+ * @author catnip
  */
 public enum TemplateFileNameEnum{
     SERVICE("", "Service.java"),

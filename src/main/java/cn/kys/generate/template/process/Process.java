@@ -7,8 +7,7 @@ import cn.kys.generate.builder.model.FileTemplateContent;
  * 模板渲染程序
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午2:35
+ * @author catnip
  */
 public abstract class Process {
 

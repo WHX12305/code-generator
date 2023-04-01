@@ -13,8 +13,7 @@ import java.util.List;
  * 代码生成入口
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午4:08
+ * @author catnip
  */
 @Component
 public class GenerateFacade {

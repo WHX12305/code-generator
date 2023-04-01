@@ -12,8 +12,7 @@ import java.util.List;
  * 生成配置
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午2:03
+ * @author catnip
  */
 @Configuration
 @ConfigurationProperties(prefix = "generate")

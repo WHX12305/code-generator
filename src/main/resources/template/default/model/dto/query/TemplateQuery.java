@@ -12,7 +12,6 @@ import io.swagger.annotations.ApiModelProperty;</#if>
  * </p>
  *
  * @author ${generateConfig.author}
- * @since ${dateTime}
  */<#if tableConfig.enableSwagger == "true">
 @ApiModel("${table.desc},查询条件")</#if>
 public class ${table.className}Query implements Serializable{

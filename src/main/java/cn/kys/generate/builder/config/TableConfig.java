@@ -5,8 +5,7 @@ package cn.kys.generate.builder.config;
  * 表配置信息
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午2:09
+ * @author catnip
  */
 public class TableConfig implements Cloneable{
     /**

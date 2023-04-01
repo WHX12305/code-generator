@@ -8,8 +8,7 @@ import java.util.Set;
  * 表信息
  * </p>
  *
- * @author whx
- * @since 2022/7/5 下午6:00
+ * @author catnip
  */
 public class Table {
 

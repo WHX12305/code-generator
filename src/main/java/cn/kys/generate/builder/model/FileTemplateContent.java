@@ -8,8 +8,7 @@ import cn.kys.generate.builder.config.TableConfig;
  * 模板内容
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午6:21
+ * @author catnip
  */
 public class FileTemplateContent {
 

@@ -5,8 +5,7 @@ package cn.kys.generate.builder.model;
  * 模板文件信息
  * </p>
  *
- * @author whx
- * @since 2023/1/31 下午2:33
+ * @author catnip
  */
 public class TemplateInfo {
 

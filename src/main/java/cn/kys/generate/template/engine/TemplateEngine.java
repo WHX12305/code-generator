@@ -5,8 +5,7 @@ package cn.kys.generate.template.engine;
  * 模板引擎
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午3:33
+ * @author catnip
  */
 public interface TemplateEngine {
 

@@ -5,8 +5,7 @@ package cn.kys.generate.builder.model;
  * 列信息
  * </p>
  *
- * @author whx
- * @since 2022/7/5 下午6:01
+ * @author catnip
  */
 public class Column {
 

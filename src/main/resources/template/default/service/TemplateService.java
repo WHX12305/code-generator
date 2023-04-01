@@ -7,7 +7,6 @@ package ${generateConfig.basePackage}.${templateInfo.packagePath};
  * </p>
  *
  * @author ${generateConfig.author}
- * @since ${dateTime}
  */
 public interface ${table.className}Service {
 

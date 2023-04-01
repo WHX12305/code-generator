@@ -12,8 +12,7 @@ import java.util.List;
  * sql执行mapper
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午3:30
+ * @author catnip
  */
 @Mapper
 public interface PubMapper {

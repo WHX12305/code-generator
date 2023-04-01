@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author ${generateConfig.author}
- * @since ${dateTime}
  */
 @RestController
 @RequestMapping("${table.fieldName}")

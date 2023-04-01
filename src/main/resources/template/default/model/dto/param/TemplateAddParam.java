@@ -13,7 +13,6 @@ import io.swagger.annotations.ApiModelProperty;</#if>
  * </p>
  *
  * @author ${generateConfig.author}
- * @since ${dateTime}
  */<#if tableConfig.enableSwagger == "true">
 @ApiModel("${table.desc}")</#if>
 public class ${table.className}AddParam implements Serializable{

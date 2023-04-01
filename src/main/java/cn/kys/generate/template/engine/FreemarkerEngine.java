@@ -16,8 +16,7 @@ import java.io.Writer;
  *  Freemarker模板引擎
  * </p>
  *
- * @author whx
- * @since 2022/9/27 下午3:38
+ * @author catnip
  */
 @Component
 public class FreemarkerEngine implements TemplateEngine{

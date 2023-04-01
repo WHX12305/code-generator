@@ -10,7 +10,6 @@ import ${typePackage};
  * </p>
  *
  * @author ${generateConfig.author}
- * @since ${dateTime}
  */
 public class ${table.className}DaoQuery implements Serializable{
 

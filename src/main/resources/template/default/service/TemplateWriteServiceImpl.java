@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author ${generateConfig.author}
- * @since ${dateTime}
  */
 @Service
 public class ${table.className}WriteServiceImpl implements ${table.className}WriteService {

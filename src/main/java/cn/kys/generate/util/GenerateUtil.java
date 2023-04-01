@@ -5,8 +5,7 @@ package cn.kys.generate.util;
  *
  * </p>
  *
- * @author whx
- * @since 2022/9/28 上午10:17
+ * @author catnip
  */
 public class GenerateUtil {
 
