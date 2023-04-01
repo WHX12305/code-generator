@@ -6,6 +6,8 @@ import ${typePackage};
 </#list>
 <#if tableConfig.enableSwagger == "true">import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;</#if>
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * <p>
@@ -15,6 +17,8 @@ import io.swagger.annotations.ApiModelProperty;</#if>
  * @author ${generateConfig.author}
  */<#if tableConfig.enableSwagger == "true">
 @ApiModel("${table.desc}")</#if>
+@Getter
+@Setter
 public class ${table.className}DTO implements Serializable{
 
     private static final long serialVersionUID = ${serialNo}L;
@@ -31,20 +35,4 @@ public class ${table.className}DTO implements Serializable{
     @ApiModelProperty(required = ${column.canNull?c}, value = "${column.desc}")</#if>
     private ${column.type} ${column.fieldName};
 </#if></#list>
-<#list table.columns as column><#if tableConfig.deleteName??><#if tableConfig.deleteName != column.originName>
-
-    public ${column.type} get${column.upperFieldName}() {
-        return ${column.fieldName};
-    }
-    public void set${column.upperFieldName}(${column.type} ${column.fieldName}) {
-        this.${column.fieldName} = ${column.fieldName};
-    }
-    </#if><#else>
-
-    public ${column.type} get${column.upperFieldName}() {
-        return ${column.fieldName};
-    }
-    public void set${column.upperFieldName}(${column.type} ${column.fieldName}) {
-        this.${column.fieldName} = ${column.fieldName};
-    }</#if></#list>
 }

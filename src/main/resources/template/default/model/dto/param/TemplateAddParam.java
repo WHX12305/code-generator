@@ -3,9 +3,11 @@ package ${generateConfig.basePackage}.${templateInfo.packagePath};
 import java.io.Serializable;
 <#list table.columnPackage as typePackage>
 import ${typePackage};
-        </#list>
-        <#if tableConfig.enableSwagger == "true">import io.swagger.annotations.ApiModel;
+</#list>
+<#if tableConfig.enableSwagger == "true">import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;</#if>
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * <p>
@@ -15,6 +17,8 @@ import io.swagger.annotations.ApiModelProperty;</#if>
  * @author ${generateConfig.author}
  */<#if tableConfig.enableSwagger == "true">
 @ApiModel("${table.desc}")</#if>
+@Getter
+@Setter
 public class ${table.className}AddParam implements Serializable{
 
     private static final long serialVersionUID = ${serialNo}L;
@@ -25,15 +29,5 @@ public class ${table.className}AddParam implements Serializable{
      */<#if tableConfig.enableSwagger == "true">
     @ApiModelProperty(required = ${(!column.canNull)?c}, value = "${column.desc}")</#if>
     private ${column.type} ${column.fieldName};</#if>
-</#list>
-<#list table.columns as column>
-<#if tableConfig.autoGenerate?seq_contains(column.originName)><#else>
-    public ${column.type} get${column.upperFieldName}() {
-        return ${column.fieldName};
-    }
-
-    public void set${column.upperFieldName}(${column.type} ${column.fieldName}) {
-        this.${column.fieldName} = ${column.fieldName};
-    }</#if>
 </#list>
 }

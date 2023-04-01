@@ -4,7 +4,6 @@ import ${generateConfig.basePackage}.${templateInfo.doPackagePath}.${table.class
 import ${generateConfig.basePackage}.${templateInfo.doQueryPackagePath}.${table.className}DaoQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
 @Mapper

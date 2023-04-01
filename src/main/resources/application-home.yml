@@ -2,15 +2,14 @@ spring:
   datasource:
     username: root
     password: Wang2008..
-    url: jdbc:mysql://192.168.0.3:32306/catnip_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    url: jdbc:mysql://catnip.cn:32306/catnip_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
 generate:
-  template: cloud
-  author: whx
-  basePackage: cn.catnip.base
+  template: default
+  author: catnip
+  basePackage: cn.catnip.user
   enableSwagger: true
+  tablePrefix: tb
   tables:
-    - tableName: short_url_map
+    - tableName: tb_user
       autoGenerate: id,gmt_created,is_deleted
       deleteName: is_deleted
-    - tableName: short_url_visit
-      autoGenerate: id,gmt_created
