@@ -22,7 +22,7 @@ public class Column {
     /**
      * 首字母大写的属性名
      */
-    private String UpperFieldName;
+    private String upperFieldName;
 
     /**
      * 类型
@@ -48,6 +48,19 @@ public class Column {
      * 是否覆盖索引
      */
     private String key;
+
+    /**
+     * 是否为主键 0是 1否
+     */
+    private Byte primary = 1;
+
+    public Byte getPrimary() {
+        return primary;
+    }
+
+    public void setPrimary(Byte primary) {
+        this.primary = primary;
+    }
 
     public String getType() {
         return type;
@@ -106,10 +119,10 @@ public class Column {
     }
 
     public String getUpperFieldName() {
-        return UpperFieldName;
+        return upperFieldName;
     }
 
     public void setUpperFieldName(String upperFieldName) {
-        UpperFieldName = upperFieldName;
+        this.upperFieldName = upperFieldName;
     }
 }

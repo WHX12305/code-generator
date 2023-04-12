@@ -177,12 +177,16 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder {
             String dataType = GenerateUtil.getType(e.get("DATA_TYPE")).split("\\.")[2];
             column.setType("Byte".equals(dataType) ? "Byte[]" : dataType);
             column.setTypePackage(GenerateUtil.getType(e.get("DATA_TYPE")));
+            if (column.getKey() != null && !"".equals(column.getKey())) {
+                if ("PRI".equals(column.getKey())){
+                    column.setPrimary((byte) 0);
+                }else {
+                    columnsKeyPackage.add(column.getTypePackage());
+                    indexList.add(column);
+                }
+            }
             columns.add(column);
             columnsPackage.add(column.getTypePackage());
-            if (column.getKey() != null && !"".equals(column.getKey()) && !"PRI".equals(column.getKey())) {
-                columnsKeyPackage.add(column.getTypePackage());
-                indexList.add(column);
-            }
         });
         table.setColumns(columns);
         table.setColumnPackage(columnsPackage);
