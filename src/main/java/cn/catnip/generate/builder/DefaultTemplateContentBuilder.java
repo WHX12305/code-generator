@@ -1,6 +1,5 @@
 package cn.catnip.generate.builder;
 
-import cn.hutool.core.util.IdUtil;
 import cn.catnip.generate.builder.config.GenerateConfig;
 import cn.catnip.generate.builder.config.TableConfig;
 import cn.catnip.generate.builder.model.Column;
@@ -8,6 +7,7 @@ import cn.catnip.generate.builder.model.FileTemplateContent;
 import cn.catnip.generate.builder.model.Table;
 import cn.catnip.generate.dao.PubMapper;
 import cn.catnip.generate.util.GenerateUtil;
+import cn.hutool.core.util.IdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -136,10 +136,10 @@ public class DefaultTemplateContentBuilder implements TemplateContentBuilder {
         String tablePrefix = tableConfig.getTablePrefix() == null ? "" : tableConfig.getTablePrefix();
         table.setClassName(
                 GenerateUtil.firstUpper(
-                        GenerateUtil.hump(tableName.replace(tablePrefix, ""))
+                        GenerateUtil.hump(tableName.replaceFirst(tablePrefix, ""))
                 )
         );
-        table.setFieldName(GenerateUtil.hump(tableName.replace(tablePrefix, "")));
+        table.setFieldName(GenerateUtil.hump(tableName.replaceFirst(tablePrefix, "")));
         database = dataSource.getConnection().getCatalog();
         String selectDesc =
                 "SELECT TABLE_COMMENT FROM information_schema.tables WHERE TABLE_SCHEMA = '" + database + "' AND TABLE_NAME = '" + tableName + "'";

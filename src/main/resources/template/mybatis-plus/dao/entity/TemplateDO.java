@@ -1,6 +1,5 @@
 package ${generateConfig.basePackage}.${templateInfo.packagePath};
 
-import java.io.Serializable;
 <#list table.columnPackage as typePackage>
 import ${typePackage};
 </#list>
@@ -19,9 +18,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @Getter
 @Setter
 @TableName("${table.originName}")
-public class ${table.className}DO implements Serializable{
+public class ${table.className}DO {
 
-    private static final long serialVersionUID = ${serialNo}L;
 <#list table.columns as column>
     /**
      * <#if column.desc != "">${column.desc}</#if>

@@ -16,7 +16,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class ${table.className}DO implements Serializable{
+public class ${table.className}DO {
 
     private static final long serialVersionUID = ${serialNo}L;
 <#list table.columns as column>
