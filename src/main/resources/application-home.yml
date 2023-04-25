@@ -1,15 +1,13 @@
 spring:
   datasource:
-    username: root
-    password: Wang2008..
-    url: jdbc:mysql://catnip.cn:32306/catnip_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: www
+    password: 123456
+    url: jdbc:mysql://192.168.1.49:3306/catnip_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
 generate:
-  template: default
+  template: mybatis-plus
   author: catnip
-  basePackage: cn.catnip.user
+  basePackage: com.dw.common
   enableSwagger: true
   tablePrefix: tb
   tables:
-    - tableName: tb_user
-      autoGenerate: id,gmt_created,is_deleted
-      deleteName: is_deleted
+    - tableName: tb_common_web_log
