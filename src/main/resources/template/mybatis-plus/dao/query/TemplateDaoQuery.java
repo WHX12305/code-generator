@@ -11,8 +11,6 @@ import lombok.Setter;
  * <p>
  * ${table.desc}
  * </p>
- *
- * @author ${generateConfig.author}
  */
 @Getter
 @Setter

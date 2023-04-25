@@ -15,8 +15,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
  * <p>
  * ${table.desc}
  * </p>
- *
- * @author ${generateConfig.author}
  */
 @Getter
 @Setter

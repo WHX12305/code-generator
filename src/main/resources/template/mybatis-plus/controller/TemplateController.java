@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>
  * ${table.desc}
  * </p>
- *
- * @author ${generateConfig.author}
  */
 @RestController
 @RequestMapping("${table.fieldName}")

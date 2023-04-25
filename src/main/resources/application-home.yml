@@ -1,13 +1,24 @@
 spring:
   datasource:
-    username: www
-    password: 123456
-    url: jdbc:mysql://192.168.1.49:3306/catnip_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: catnip
+    url: jdbc:mysql://192.168.1.121:3306/oirlife_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
 generate:
   template: mybatis-plus
-  author: catnip
-  basePackage: com.dw.common
+  autoGenerate: gmt_created,gmt_modified,is_deleted
+  deleteName: is_deleted
+  basePackage: com.oirlife.user
   enableSwagger: true
-  tablePrefix: tb
+  tablePrefix: u
   tables:
-    - tableName: tb_common_web_log
+    - tableName: u_user_real
+    - tableName: u_user
+    - tableName: u_user_wx
+      autoGenerate: gmt_created,is_deleted
+    - tableName: u_admin
+    - tableName: u_admin_login
+      autoGenerate: gmt_created
+    - tableName: u_admin_role_relation
+    - tableName: u_role
+    - tableName: u_resource_set
+    - tableName: u_resource

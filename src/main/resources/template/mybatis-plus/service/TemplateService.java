@@ -5,8 +5,6 @@ package ${generateConfig.basePackage}.${templateInfo.packagePath};
  * ${table.desc}
  * 读操作service
  * </p>
- *
- * @author ${generateConfig.author}
  */
 public interface ${table.className}Service {
 
