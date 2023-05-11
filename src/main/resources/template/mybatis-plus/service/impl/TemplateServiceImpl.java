@@ -1,7 +1,7 @@
 package ${generateConfig.basePackage}.${templateInfo.packagePath};
 
 import org.springframework.stereotype.Service;
-import ${generateConfig.basePackage}.service.${table.className}Service;
+import ${generateConfig.basePackage}.${templateInfo.servicePackagePath}.${table.className}Service;
 
 /**
  * <p>

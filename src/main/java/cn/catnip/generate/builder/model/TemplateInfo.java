@@ -20,14 +20,24 @@ public class TemplateInfo {
     private String doPackagePath;
 
     /**
-     * doQuery包部分路径，包含类名
+     * doQuery包部分路径
      */
     private String doQueryPackagePath;
 
     /**
-     * mapper包部分路径，包含类名
+     * mapper包部分路径
      */
     private String mapperPackagePath;
+
+    /**
+     * service包部分路径
+     */
+    private String servicePackagePath;
+
+    /**
+     * repository包部分路径
+     */
+    private String repositoryPackagePath;
 
     public String getMapperPackagePath() {
         return mapperPackagePath;
@@ -35,6 +45,22 @@ public class TemplateInfo {
 
     public void setMapperPackagePath(String mapperPackagePath) {
         this.mapperPackagePath = mapperPackagePath;
+    }
+
+    public String getServicePackagePath() {
+        return servicePackagePath;
+    }
+
+    public void setServicePackagePath(String servicePackagePath) {
+        this.servicePackagePath = servicePackagePath;
+    }
+
+    public String getRepositoryPackagePath() {
+        return repositoryPackagePath;
+    }
+
+    public void setRepositoryPackagePath(String repositoryPackagePath) {
+        this.repositoryPackagePath = repositoryPackagePath;
     }
 
     public String getDoPackagePath() {
