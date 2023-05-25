@@ -25,7 +25,7 @@ public class ${table.className}DO {
      * <#if column.desc != "">${column.desc}</#if>
      * canNull: ${column.canNull?c}
      */
-    <#if column.primary==0>@TableId(type = IdType.AUTO)<#else>@TableField(value = '`${column.originName}`')</#if>
+    <#if column.primary==0>@TableId(type = IdType.AUTO)<#else>@TableField(value = "`${column.originName}`")</#if>
     private ${column.type} ${column.fieldName};
 </#list>
 }

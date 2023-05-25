@@ -2,8 +2,7 @@ package ${generateConfig.basePackage}.${templateInfo.packagePath};
 
 /**
  * <p>
- * ${table.desc}
- * 读操作service
+ * ${table.desc}Service
  * </p>
  */
 public interface ${table.className}Service {

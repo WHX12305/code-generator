@@ -2,14 +2,15 @@ spring:
   datasource:
     username: root
     password: catnip
-    url: jdbc:mysql://192.168.1.213:3306/oirlife_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    url: jdbc:mysql://192.168.1.239:3306/oirlife_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
 generate:
   template: mybatis-plus
   autoGenerate: gmt_created,gmt_modified,is_deleted
   deleteName: is_deleted
-  basePackage: com.oirlife.common
+  basePackage: com.oirlife.order
   enableSwagger: true
-  tablePrefix:
+  tablePrefix: o
   tables:
-    - tableName: common_web_log
-      autoGenerate: gmt_created,is_deleted
+    - tableName: o_order
+    - tableName: o_order_operate_record
+    - tableName: o_order_refund_approval

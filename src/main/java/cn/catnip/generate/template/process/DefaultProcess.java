@@ -44,7 +44,6 @@ public class DefaultProcess extends Process {
             String templatePathPartPackage = getTemplatePathPartPackage(templateFilePath, templateConfigName, templateName);
             templateInfo.setPackagePath(templatePathPartPackage);
             templateInfo.setDoPackagePath(getTemplatePathPartPackage(templateFilePath, templateConfigName, TemplateFileNameEnum.DAO_ENTITY.getTemplateName()));
-            templateInfo.setDoQueryPackagePath(getTemplatePathPartPackage(templateFilePath, templateConfigName, TemplateFileNameEnum.DAO_QUERY.getTemplateName()));
             templateInfo.setMapperPackagePath(getTemplatePathPartPackage(templateFilePath, templateConfigName, TemplateFileNameEnum.DAO_MAPPER.getTemplateName()));
             templateInfo.setServicePackagePath(getTemplatePathPartPackage(templateFilePath, templateConfigName, TemplateFileNameEnum.SERVICE.getTemplateName()));
             templateInfo.setRepositoryPackagePath(getTemplatePathPartPackage(templateFilePath, templateConfigName, TemplateFileNameEnum.DAO_REPOSITORY.getTemplateName()));

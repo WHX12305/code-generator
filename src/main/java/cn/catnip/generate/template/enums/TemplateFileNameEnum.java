@@ -9,20 +9,15 @@ package cn.catnip.generate.template.enums;
  */
 public enum TemplateFileNameEnum{
     SERVICE("", "Service.java"),
-    WRITE_SERVICE("","WriteService.java"),
     SERVICE_IMPL("", "ServiceImpl.java"),
-    WRITE_SERVICE_IMPL("", "WriteServiceImpl.java"),
     DAO_ENTITY("", "DO.java"),
-    DAO_QUERY("", "DaoQuery.java"),
     DAO_MAPPER("", "Mapper.java"),
-    DAO_MAPPER_XML("", "Mapper.xml"),
     DAO_REPOSITORY("", "Repository.java"),
     DAO_REPOSITORY_IMPL("", "RepositoryImpl.java"),
     MODEL_DTO("", "DTO.java"),
     MODEL_ADD("", "AddParam.java"),
     MODEL_QUERY("", "Query.java"),
-    CONTROLLER( "", "Controller.java");
-
+    ;
     private final String prefix;
 
     private final String suffix;
