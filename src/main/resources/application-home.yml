@@ -2,13 +2,14 @@ spring:
   datasource:
     username: oirlife
     password: Oirlfe2023..
-    url: jdbc:mysql://112.230.195.142:3306/oirlife_main?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    url: jdbc:mysql://112.230.195.142:3306/test?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
 generate:
   template: mybatis-plus
-  autoGenerate: gmt_created,gmt_modified
-  deleteName:
-  basePackage: com.oirlife.fulfillment
+  autoGenerate: gmt_created,gmt_modified,is_deleted
+  deleteName: is_deleted
+  basePackage: wang.hongxiang.customer
   enableSwagger: true
-  tablePrefix: f_
+  tablePrefix:
   tables:
-    - tableName: f_exam_fulfillment
+    - tableName: user_real
+    - tableName: user_info
